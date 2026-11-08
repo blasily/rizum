@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "metadata": {
+        "title": "EXample",
+        "artist": "Blasily"
+    },
+    "timing": {
+        "bpm": 120,
+        "ticks_per_beat": 480
+    },
+    "notes": [
+        { "tick": 0, "lane": 0 },
+        { "tick": 480, "lane": 1 },
+        { "tick": 960, "lane": 2 },
+        { "tick": 1440, "lane": 3 }
+    ]
+}

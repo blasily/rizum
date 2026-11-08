@@ -1,4 +1,5 @@
 pub struct Chart {
     pub title: String,
-    pub bpm: u8,
+    pub bpm: f32,
+    pub ticks_per_beat: u16,
 }
