@@ -1,5 +1,10 @@
-pub fn ticks_to_beats(ticks: u32, ticks_per_beat: u16) -> f32 {
-    return ticks as f32 / ticks_per_beat as f32;
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize)]
+pub struct Timing {
+    pub bpm: f32,
+    pub ticks_per_beat: u16,
+}
 }
 
 pub fn beats_to_seconds(beats: f32, bpm: f32) -> f32 {

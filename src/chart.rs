@@ -1,5 +1,8 @@
+use crate::Note;
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize)]
 pub struct Chart {
-    pub title: String,
-    pub bpm: f32,
-    pub ticks_per_beat: u16,
+    pub version: u32,
+    pub notes: Vec<Note>,
 }
