@@ -15,8 +15,11 @@ fn example_chart_round_trips_through_json() {
     assert_eq!(chart.notes[3].lane, 3);
 
     let serialized = serde_json::to_string(&chart).expect("chart should serialize");
-    let original_value: serde_json::Value = serde_json::from_str(source).unwrap();
+    let mut original_value: serde_json::Value = serde_json::from_str(source).unwrap();
     let serialized_value: serde_json::Value = serde_json::from_str(&serialized).unwrap();
+    // `bpm` is modeled as an f32, so serialization writes 120.0 even though
+    // the example uses the equivalent JSON integer 120.
+    original_value["timing"]["bpm"] = serde_json::json!(120.0);
     assert_eq!(serialized_value, original_value);
 }
 
