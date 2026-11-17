@@ -6,13 +6,16 @@ fn example_chart_round_trips_through_json() {
     let chart: Chart = serde_json::from_str(source).expect("example chart should deserialize");
 
     assert_eq!(chart.version, 1);
-    assert_eq!(chart.metadata.title, "EXample");
+    assert_eq!(chart.metadata.title, "Example");
     assert_eq!(chart.metadata.artist, "Blasily");
     assert_eq!(chart.timing.bpm, 120.0);
     assert_eq!(chart.timing.ticks_per_beat, 480);
-    assert_eq!(chart.notes.len(), 4);
-    assert_eq!(chart.notes[3].tick, 1440);
-    assert_eq!(chart.notes[3].lane, 3);
+    let notes: Vec<_> = chart
+        .notes
+        .iter()
+        .map(|note| (note.tick, note.lane))
+        .collect();
+    assert_eq!(notes, [(0, 0), (480, 1), (960, 2), (1440, 3)]);
 
     let serialized = serde_json::to_string(&chart).expect("chart should serialize");
     let mut original_value: serde_json::Value = serde_json::from_str(source).unwrap();
