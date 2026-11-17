@@ -1,6 +1,6 @@
 # Rizum
 
-Rizum is an early-development Rust library for rhythm-game chart data. It currently provides public chart, metadata, timing, and note types, plus Serde JSON serialization and basic tick, beat, and time conversions. It is not yet a complete rhythm-game framework.
+Rizum is an engine-agnostic, headless rhythm-game framework written in Rust. It is at a very early stage of development. The current crate focuses on chart data and timing: it provides public chart, metadata, timing, and note types, Serde JSON serialization, and basic tick, beat, and time conversions. It does not yet provide complete gameplay or runtime functionality.
 
 ## Getting started
 
